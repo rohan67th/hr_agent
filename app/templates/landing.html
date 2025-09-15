@@ -1,0 +1,55 @@
+{% load static %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR AI Agent</title>
+    
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+
+    <div class="spinner-overlay" id="spinner">
+        <div class="spinner"></div>
+    </div>
+
+    <main>
+        <h1>HR AI Agent</h1>
+        <p>Upload resumes and provide a job description to rank candidates.</p>
+
+        <form id="upload-form">
+            <div class="form-group">
+                <label for="job-description">Job Description</label>
+                <textarea id="job-description" name="job_description" rows="10" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="resumes">Upload Resumes (.pdf, .docx, .txt)</label>
+                <input type="file" id="resumes" name="resumes" accept=".pdf,.docx,.txt" multiple required>
+            </div>
+            <button type="submit" id="submit-btn">Process Candidates</button>
+        </form>
+
+        <div id="results-container">
+            </div>
+
+        <div id="schedule-section" style="display: none;">
+            <button id="schedule-btn">Schedule Selected Interviews</button>
+        </div>
+
+        <div id="view-schedules-section">
+            <hr>
+            <button id="view-schedules-btn">View Scheduled Interviews</button>
+        </div>
+
+        <div id="schedules-list-container">
+            </div>
+        <button id="theme-toggle" style="width: auto; position: absolute; top: 20px; right: 20px; padding: 10px;">🌙</button>
+    </main>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
